@@ -1,0 +1,12 @@
+.sidebar{
+    background: rgb(5, 68, 104);
+    position: fixed;
+    top: auto;
+    left: 0;
+    width: 20%;
+    height: 100%;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+    overflow: auto;
+    float: left;
+}

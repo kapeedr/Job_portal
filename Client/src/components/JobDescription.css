@@ -1,0 +1,16 @@
+.imfobox{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid black; */
+    
+    width: 80%;
+    float: right;
+    background: #F8F9FA;
+    height: 200px;
+}
+.imfobox2{
+    margin: 20px;
+    justify-content: center;
+
+
+}

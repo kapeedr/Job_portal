@@ -3,7 +3,7 @@ import "./Navbar.css";
 import portalLogo from "./portalLogo.png";
 import { useState } from "react";
 
-export const Navbar = () => {
+export const Navbar = ({createHandler}) => {
 
   
   const [buttonApply, setButtonApply] = useState(false);
@@ -48,6 +48,7 @@ export const Navbar = () => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
     setButtonApply(false);
+    createHandler(jsonData);
   };
 
   return (

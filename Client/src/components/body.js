@@ -4,12 +4,19 @@ import "./body.css";
 import { useEffect, useState } from "react";
 
 import Card1 from "./card.js";
+import Navbar from "./Navbar";
 
 
 const Body = () => {
 
   const [jobData, setJobData ] = useState([]);
   const [state, setstate] = useState(1);
+
+
+  const createHandler = (newData)=>{
+    setJobData(prevState => [...prevState, newData] );
+  }
+
 
   useEffect(() => { //use get api to display all job list on main page
     fun();
@@ -54,6 +61,7 @@ const Body = () => {
 
   return (
     <>
+    <Navbar createHandler={createHandler}/>
       <div className="body">
       
         <div className="Box">

@@ -10,13 +10,13 @@ import TimeAgo from "javascript-time-ago";
 
 
 
-const Card1 = ({jobData, createHandler}) => {
+const Card1 = ({jobData}) => {
   const sendImfo = () => {
     console.log(jobData);
   }
   const deletThisJob = async(id)=>{
     alert(`You are apply for ${jobData.title} in ${jobData.company}.`);
-    createHandler("deleted");
+    // createHandler("deleted");
     var requestOptions = {
       method: 'DELETE',
       redirect: 'follow'

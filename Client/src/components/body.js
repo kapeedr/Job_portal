@@ -14,9 +14,7 @@ const Body = () => {
 
 
   const createHandler = (newData)=>{
-    console.log("newData", newData)
-      if(newData!="deleted") setJobData(prevState => [...prevState, newData] );
-      else setstate(!state);
+    setJobData(prevState => [...prevState, newData] );
   }
 
 
@@ -209,7 +207,7 @@ const Body = () => {
                 return val;
               }
              }).map((data,i) => (
-              <Card1 jobData={data} createHandler={createHandler}/>
+              <Card1 jobData={data}/>
              ))}
              </>
               ) :(<></>)

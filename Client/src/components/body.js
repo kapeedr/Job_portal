@@ -21,6 +21,8 @@ const Body = () => {
   useEffect(() => { //use get api to display all job list on main page
     fun();
   }, []);
+
+  
   const fun = async (e) => {
     const response = await fetch(
       `http://localhost:4000/api/jobs/getalljobs`, 
@@ -41,7 +43,8 @@ const Body = () => {
     
     }
   };
-
+//   var curen = new Date();
+// console.log(curen)
 // try to do filter on sidebar but its not work
   var filtData = jobData;
   const [searhTerm, setSearchterm]= useState('')
@@ -230,6 +233,6 @@ const Merge = () => {
   if(ele.style.display === "none"){
     ele.style.display = "block";
   }else{
-    ele.style.display = "block";
+    ele.style.display = "none";
   }
 }

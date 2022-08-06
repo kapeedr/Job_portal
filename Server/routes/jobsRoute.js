@@ -20,7 +20,6 @@ router.post("/create", async(req,res) => {
         else 
            console.log('save user successfully...');
     });
-    console.log(req.body);
     res.status(201).send("created user");
 })
 

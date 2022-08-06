@@ -3,9 +3,7 @@ import "./Navbar.css";
 import portalLogo from "./portalLogo.png";
 import { useState } from "react";
 
-export const Navbar = ({createHandler}) => {
-
-  
+export const Navbar = ({ createHandler }) => {
   const [buttonApply, setButtonApply] = useState(false);
   const [jobtitle, setJobtitle] = useState("");
   const [workplace, setWorkplace] = useState("");
@@ -25,7 +23,7 @@ export const Navbar = ({createHandler}) => {
       skillsRequired: skills,
       fullDescription: description,
       company: companyName,
-      createdAt: "2021-08-26T07:53:23.437Z",
+      createdAt: new Date(),
       jobType: jobType,
       jobWorkplace: workplace,
       location: Location,
@@ -74,41 +72,60 @@ export const Navbar = ({createHandler}) => {
                   onChange={(event) => {
                     setJobtitle(event.target.value);
                   }}
+                  required
                 />
                 <br></br>
-                <input
+                <select
                   placeholder="Type of Workplace"
                   onChange={(event) => {
                     setWorkplace(event.target.value);
-                  }}
-                />
+                  }} >
+                    <option value="">Select workplace</option>
+    <option value="Full time">on site</option>
+    <option value="Part-time/intership">off site</option>
+    <option value="Remote">Hybrid</option>
+    </select>
+   
                 <br></br>
-                <input
-                  placeholder="Location of Job"
-                  onChange={(event) => {
+                <select>
+                  placeholder="Location of Job" onChange=
+                  {(event) => {
                     setLocation(event.target.value);
                   }}
-                />
+                  <option value="Location">Select Location</option>
+                  <option value="Pune">Pune</option>
+                  <option value="Banglore">Banglore</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Delhie">Delhi</option>
+                </select>
                 <br></br>
                 <input
                   placeholder="Experience"
                   onChange={(event) => {
                     setExperience(event.target.value);
                   }}
+                  required
                 />
                 <br></br>
-                <input
+                <select
                   placeholder="Job Type"
                   onChange={(event) => {
                     setJobType(event.target.value);
                   }}
-                />
+                
+                >
+                  <option value="workPal">Select Workplace</option>
+    <option value="Full time">Full time</option>
+    <option value="Part-time/intership">Part time/internship</option>
+    <option value="Remote">Remote</option>
+    </select>
                 <br></br>
                 <input
                   placeholder="Job description "
                   onChange={(event) => {
                     setDescription(event.target.value);
                   }}
+                  required
                 />
                 <br></br>
                 <input
@@ -116,6 +133,7 @@ export const Navbar = ({createHandler}) => {
                   onChange={(event) => {
                     setSkills(event.target.value);
                   }}
+                  required
                 />
                 <br></br>
                 <input
@@ -123,6 +141,7 @@ export const Navbar = ({createHandler}) => {
                   onChange={(event) => {
                     setCompanyName(event.target.value);
                   }}
+                  required
                 />
                 <br></br>
                 <div className="buton">

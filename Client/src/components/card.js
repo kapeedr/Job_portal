@@ -4,6 +4,7 @@ import './body.css'
 import moment from "moment"
 import logo from "./LogoCompany.png";
 import locationImage from "./location.png";
+import TimeAgo from "javascript-time-ago";
 // import './data.json';
 // let data = require("./data.json")
 
@@ -27,7 +28,41 @@ const Card1 = ({jobData}) => {
   
   
   }
-  const [jobId, setjobId] = useState("")
+  // // const [jobId, setjobId] = useState("")
+
+
+  // use for find how much time ago
+
+  function timeSince(date) {
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+  
+    var interval = seconds / 31536000;
+  
+    if (interval > 1) {
+      return Math.floor(interval) + " years";
+    }
+    interval = seconds / 2592000;
+    if (interval > 1) {
+      return Math.floor(interval) + " months";
+    }
+    interval = seconds / 86400;
+    if (interval > 1) {
+      return Math.floor(interval) + " days";
+    }
+    interval = seconds / 3600;
+    if (interval > 1) {
+      return Math.floor(interval) + " hours";
+    }
+    interval = seconds / 60;
+    if (interval > 1) {
+      return Math.floor(interval) + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+  }
+  const time_ago = timeSince(new Date(jobData.createdAt)) // use for find how much time ago
+
+
   return (
     <>
     
@@ -57,7 +92,7 @@ const Card1 = ({jobData}) => {
           <span className="location">{jobData.location}</span>
         </div>
         <div className="four">{jobData.fullDescription}</div>
-        
+        <p>{time_ago} ago</p>
       </div>
     </>
   );

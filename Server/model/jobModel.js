@@ -28,6 +28,6 @@ const jobSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
-
+//creating new collection on mongodb campus
 const jobModel = new mongoose.model("jobs", jobSchema);
 module.exports = jobModel;

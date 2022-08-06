@@ -13,7 +13,20 @@ const Card1 = ({jobData}) => {
   const sendImfo = () => {
     console.log(jobData);
   }
-
+  const deletThisJob = async(id)=>{
+    alert(`You are apply for ${jobData.title} in ${jobData.company}.`);
+    var requestOptions = {
+      method: 'DELETE',
+      redirect: 'follow'
+    };
+    
+    fetch(`http://localhost:4000/api/jobs/deleteJob/${id}`, requestOptions)
+      .then(response => response.json())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  
+  
+  }
   const [jobId, setjobId] = useState("")
   return (
     <>
@@ -29,7 +42,7 @@ const Card1 = ({jobData}) => {
             <span id="companyName">{jobData.company}</span>
           </div>
           <div>
-            <button className="apply" onClick={setjobId}>Apply</button>
+            <button className="apply" onClick={()=>deletThisJob(jobData._id)}>Apply</button>
           </div>
         </div>
         <div className="three">

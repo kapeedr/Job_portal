@@ -11,29 +11,31 @@ const Body = () => {
   const [jobData, setJobData ] = useState([]);
   const [state, setstate] = useState(1);
 
-  useEffect(() => {
-    const fun = async (e) => {
-      const response = await fetch(
-        `http://localhost:4000/api/jobs/getalljobs`, 
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            'Access-Control-Allow-Origin': '*',
-           'Access-Control-Allow-Headers': 'Content-Type',
-           'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
-          },
-        }
-      );
-      const json = await response.json();
-      if (json) {
-        setJobData(json);
-      
-      }
-    };
+  useEffect(() => { //use get api to display all job list on main page
     fun();
-    // eslint-disable-next-line
   }, []);
+  const fun = async (e) => {
+    const response = await fetch(
+      `http://localhost:4000/api/jobs/getalljobs`, 
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': '*',
+         'Access-Control-Allow-Headers': 'Content-Type',
+         'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT',
+        },
+      }
+    );
+    const json = await response.json();
+    if (json) {
+      setJobData(json);
+      console.log(jobData)
+    
+    }
+  };
+
+// try to do filter on sidebar but its not work
   var filtData = jobData;
   const [searhTerm, setSearchterm]= useState('')
   const [filteredNumbers, setFilteredNumbers] = useState([])
@@ -174,6 +176,7 @@ const Body = () => {
                     <div className="size clr">Sort by : </div>
                     <div className="mrg">
                       <select id="Car" name="myCar">
+                        <option value="val1">rcent</option>
                         <option value="val1">Date</option>
                         <option value="val1">name</option>
                       </select>

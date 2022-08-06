@@ -2,9 +2,10 @@ import React from "react";
 import "./Navbar.css";
 import portalLogo from "./portalLogo.png";
 import { useState } from "react";
-import Axios from "axios";
 
 export const Navbar = () => {
+
+  
   const [buttonApply, setButtonApply] = useState(false);
   const [jobtitle, setJobtitle] = useState("");
   const [workplace, setWorkplace] = useState("");
@@ -29,27 +30,23 @@ export const Navbar = () => {
       jobWorkplace: workplace,
       location: Location,
     };
-    // fetch("http://localhost:4000/api/jobs/create",{
-    //     method: 'POST',
-    //     mode: "cors",
-    //     body: JSON.stringify(jsonData)
-    // });
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
+    var raw = JSON.stringify(jsonData);
+
     var requestOptions = {
       method: "POST",
       headers: myHeaders,
-      body: JSON.stringify(jsonData),
+      body: raw,
       redirect: "follow",
     };
 
     fetch("http://localhost:4000/api/jobs/create", requestOptions)
       .then((response) => response.text())
-      .then((result) => console.log("reasult" + result))
+      .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
-
     setButtonApply(false);
   };
 

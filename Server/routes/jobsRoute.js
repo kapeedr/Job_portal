@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Job = require('../Server/model/jobModel');
+const Job = require('../model/jobModel');
 router.get("/getalljobs", async(req,res) => {
     try{
         const jobs = await Job.find()
@@ -23,6 +23,23 @@ router.post("/create", async(req,res) => {
     console.log(req.body);
     res.status(201).send("created user");
 })
+
+router.delete("/deleteJob/:id", async(req, res) => {
+    Job.deleteOne({_id:req.params.id}).then((result) =>{
+        res.status(200).json(result)
+    }).catch((err)=>{
+        console.warn(err)
+    })
+})
+
+
+
+
+
+
+
+
+
 
 
 

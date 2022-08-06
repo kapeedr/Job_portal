@@ -28,6 +28,7 @@ export const Navbar = ({ createHandler }) => {
       jobWorkplace: workplace,
       location: Location,
     };
+    console.log(jsonData)
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");

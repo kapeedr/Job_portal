@@ -10,6 +10,32 @@ router.get("/getalljobs", async(req,res) => {
     }
 });
 
+router.get("/sortbyTitle", async(req,res) => {
+    try{
+        const jobs = await Job.find({}).sort("title");
+        res.send(jobs);
+    } catch(error){
+        return res.status(400).json({error});
+    }
+});
+router.get("/sortbyCompany", async(req,res) => {
+    try{
+        const jobs = await Job.find({}).sort("company");
+        res.send(jobs);
+    } catch(error){
+        return res.status(400).json({error});
+    }
+});
+
+router.get("/sortbytime", async(req,res) => {
+    try{
+        const jobs = await Job.find({}).sort({createdAt:-1});
+        res.send(jobs);
+    } catch(error){
+        return res.status(400).json({error});
+    }
+});
+
 router.post("/create", async(req,res) => {
 
     const u = new Job(req.body);
@@ -17,8 +43,6 @@ router.post("/create", async(req,res) => {
     u.save(function(err) {
         if (err)
            throw err;
-        else 
-           console.log('save user successfully...');
     });
     res.status(201).send("created user");
 })
@@ -32,6 +56,23 @@ router.delete("/deleteJob/:id", async(req, res) => {
 })
 
 
+router.put("/editJob/:id", async(req, res) => {
+    const thing = new Job(req.body);
+
+    Job.updateOne({_id: req.params.id}, thing).then(
+        () => {
+          res.status(201).json({
+            message: 'Thing updated successfully!'
+          });
+        }
+      ).catch(
+        (error) => {
+          res.status(400).json({
+            error: error
+          });
+        }
+      );
+})
 
 
 

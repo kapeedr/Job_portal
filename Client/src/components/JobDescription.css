@@ -1,16 +1,53 @@
-.imfobox{
+/* .imfobox{
     display: flex;
     justify-content: space-between;
     /* border: 2px solid black; */
-    
+/*     
     width: 80%;
     float: right;
     background: #F8F9FA;
     height: 200px;
+    z-index: 100;
 }
 .imfobox2{
     margin: 20px;
     justify-content: center;
 
 
+} */ 
+
+#imfobox{
+    width: 80vw ;
+    color: hsl(0, 100%, 1%);
+    height: 89vh;
+    overflow: scroll;
+    position: fixed;
+    top: 111px;
+    left: -253px;
+    margin-left: 30vw;
+    padding-left: 5vw;
+    padding-top: 0.5vw;
+    background-color: rgb(251, 249, 249);
+    z-index: 100;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
 }
+.close{
+    float: right;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.close:hover{
+    color: white;
+    background-color: black;
+}
+p{
+    font-size: 28px;
+}
+
+/* #jobDes p{
+    margin-top: 40px;
+} */

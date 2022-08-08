@@ -1,41 +1,45 @@
 import React from 'react'
 import "./JobDescription.css"
+import { BsXSquare} from "react-icons/bs";
+function JobDescription({data}) {
 
-function JobDescription() {
+  const Close = () => {
+    document.getElementById("imfobox").style.display = "none";
+  }
+
   return (
     <>
-    <div className='imfobox'>
-        <div className='imfobox2'>
-            <div className='imfobox3'>
+    <div id='imfobox' >
+      <BsXSquare onClick={Close} className='close'/>
+      <br></br>
+      <br></br>
             <p>
-              <b>Title</b> : Java Developer
+              <b>Title </b> :  {data.title}
+            </p>
+            <br></br>
+            <p>
+              <b>Type of Work </b> : {data.jobWorkplace}
             </p>
             <p>
-              <b>Type of Work</b> : Pune
+              <b>Job Type </b> : {data.jobType}
             </p>
             <p>
-              <b>Job Type</b> : Full time
-            </p>
-            <p>
-              <b>Job Description</b> : React.js, a comprehensive JavaScript library for building user interfaces, has changed the way we think about front-end development. React.js has grasped the interest of the open source community and it is here to stay. However, the nuances and idiosyncrasies of React.js require extra caution when distinguishing between good JavaScript developers and true experienced React.js developers.",
+              <b>Job Description </b> :{data.fullDescription}
   
             </p>
             <p>
-              <b>Name ofCompany</b> : Krista software
+              <b>Name ofCompany </b> : {data.company}
             </p>
             
             
+            
             <p>
-              <b>Title</b> : assocciatevsoftware engineer
+              <b>Skills Required </b> : {data.skillsRequired}
             </p>
             <p>
-              <b>Skills Required</b> : java
+              <b>Experience </b> : {data.experience}
             </p>
-            <p>
-              <b>Experience</b> : 5 years
-            </p>
-             </div>
-        </div>
+        
     </div>
     </>
   )

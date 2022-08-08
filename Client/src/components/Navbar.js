@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import portalLogo from "./portalLogo.png";
 import { useState } from "react";
+import { BsXLg } from "react-icons/bs";
 
 export const Navbar = ({ createHandler }) => {
   const [buttonApply, setButtonApply] = useState(false);
@@ -26,9 +27,9 @@ export const Navbar = ({ createHandler }) => {
       createdAt: new Date(),
       jobType: jobType,
       jobWorkplace: workplace,
-      location: Location,
+      location: Location
     };
-    console.log(jsonData)
+    console.log("Location ki value =" + Location)
 
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -64,19 +65,18 @@ export const Navbar = ({ createHandler }) => {
 
         {buttonApply ? (
           <>
-            <div className="creouterbox">
-              <div className="creinnerbox">
+            <div className="creouterbox ">
+              <div className="creinnerbox ">
                 <h1 className="heading">Create new job</h1>
-                <br></br>
                 <input
                   placeholder="Add Job tittle"
+                  className="form-control"
                   onChange={(event) => {
                     setJobtitle(event.target.value);
                   }}
                   required
                 />
-                <br></br>
-                <select
+                <select className="form-control"
                   placeholder="Type of Workplace"
                   onChange={(event) => {
                     setWorkplace(event.target.value);
@@ -87,19 +87,17 @@ export const Navbar = ({ createHandler }) => {
     <option value="Remote">Hybrid</option>
     </select>
    
-                <br></br>
-                <select>
+                <select className="form-control"
                   placeholder="Location of Job" onChange=
                   {(event) => {
                     setLocation(event.target.value);
-                  }}
+                  }}>
                   <option value="Location">Select Location</option>
                   <option value="Pune">Pune</option>
                   <option value="Banglore">Banglore</option>
                   <option value="Hyderabad">Hyderabad</option>
                   <option value="Delhie">Delhi</option>
                 </select>
-                <br></br>
                 <input
                   placeholder="Experience"
                   onChange={(event) => {
@@ -107,8 +105,7 @@ export const Navbar = ({ createHandler }) => {
                   }}
                   required
                 />
-                <br></br>
-                <select
+                <select className="form-control"
                   placeholder="Job Type"
                   onChange={(event) => {
                     setJobType(event.target.value);
@@ -120,15 +117,15 @@ export const Navbar = ({ createHandler }) => {
     <option value="Part-time/intership">Part time/internship</option>
     <option value="Remote">Remote</option>
     </select>
-                <br></br>
-                <input
-                  placeholder="Job description "
-                  onChange={(event) => {
+
+    <div className="form-group">
+    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Job description " rows="3"  onChange={(event) => {
                     setDescription(event.target.value);
-                  }}
-                  required
-                />
-                <br></br>
+                  }}></textarea>
+  </div>
+
+
+                
                 <input
                   placeholder="Required Skills"
                   onChange={(event) => {
@@ -136,21 +133,20 @@ export const Navbar = ({ createHandler }) => {
                   }}
                   required
                 />
-                <br></br>
                 <input
                   placeholder="Name of company"
+                  className="form-control"
                   onChange={(event) => {
                     setCompanyName(event.target.value);
                   }}
                   required
                 />
-                <br></br>
-                <div className="buton">
-                  <button className="submitbutton" onClick={addtoList}>
+                <div className="buton ">
+                  <button type="button" className="submitbutton btn btn-primary" onClick={addtoList}>
                     submit
                   </button>
-                  <button
-                    className="closebutton"
+                  <button type="button"
+                    className="closebutton ml-2 btn btn-secondary"
                     onClick={() => setButtonApply(false)}
                   >
                     Close
